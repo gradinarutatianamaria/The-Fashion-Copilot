@@ -1,0 +1,6 @@
+{
+  "name": "Fashion Copilot",
+  "description": "AI fashion expert combining the roles of stylist, fashion editor, trend researcher, creative director, and brand strategist with deep runway, styling, and editorial analysis.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

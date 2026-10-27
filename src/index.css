@@ -1,0 +1,388 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg: #F8F7F4;
+    --ink: #1A1A1A;
+    --accent: #D4AF37;
+    --ink-faint: rgba(26, 26, 26, 0.08);
+    --ink-medium: rgba(26, 26, 26, 0.6);
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'Space Mono', monospace;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    selection-background-color: var(--ink);
+    selection-color: var(--bg);
+  }
+
+  /* Typography */
+  h1, h2, h3, .font-serif, .font-editorial {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 0.95;
+  }
+
+  .font-mono-code {
+    font-family: var(--font-mono);
+  }
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* Variation 11 Design System Classes */
+.label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-medium);
+}
+
+.label-dark {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+}
+
+.logo-box {
+  width: 32px;
+  height: 32px;
+  border: 1.25px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.blueprint-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--ink-faint);
+  border: 1px solid var(--ink-faint);
+}
+
+.blueprint-card {
+  background: var(--bg);
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: none;
+  text-align: left;
+}
+
+.blueprint-card:hover {
+  background: #ffffff;
+}
+
+.blueprint-card.selected {
+  background: #ffffff;
+  position: relative;
+}
+
+.blueprint-card.selected::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--ink);
+}
+
+.blueprint-card h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.blueprint-card p {
+  font-size: 0.75rem;
+  font-style: italic;
+  opacity: 0.65;
+  color: var(--ink);
+  margin-top: 0.25rem;
+}
+
+.editorial-input, .editorial-textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--ink-faint);
+  padding: 0.6rem 0;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-bottom-color 0.2s ease;
+}
+
+.editorial-input:focus, .editorial-textarea:focus {
+  border-bottom-color: var(--ink);
+}
+
+.primary-btn {
+  width: 100%;
+  background: var(--ink);
+  color: var(--bg);
+  border: none;
+  padding: 1.2rem 1.5rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.primary-btn:hover:not(:disabled) {
+  background: #000000;
+  transform: translateY(-1px);
+}
+
+.primary-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.secondary-btn {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink-faint);
+  padding: 0.75rem 1.25rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.secondary-btn:hover {
+  border-color: var(--ink);
+  background: #ffffff;
+}
+
+.expert-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.chip {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--ink-faint);
+  border-radius: 99px;
+  cursor: pointer;
+  background: transparent;
+  color: var(--ink-medium);
+  transition: all 0.15s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.chip:hover {
+  border-color: var(--ink-medium);
+  color: var(--ink);
+}
+
+.chip.active {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+  font-weight: 600;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0.5rem 0;
+  font-size: 0.88rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  color: var(--ink-medium);
+  transition: color 0.15s ease;
+  font-family: var(--font-sans);
+}
+
+.nav-btn:hover {
+  color: var(--ink);
+}
+
+.nav-btn.active {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.output-canvas {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px dashed var(--ink-faint);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding: 2rem;
+  background: #ffffff;
+}
+
+.loader {
+  width: 60px;
+  height: 1.5px;
+  background: var(--ink-faint);
+  margin: 0 auto 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.loader::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 100%;
+  background: var(--ink);
+  left: 0;
+  animation: loaderPulse 1.4s infinite ease-in-out;
+}
+
+@keyframes loaderPulse {
+  0% { left: -30px; }
+  50% { left: 40px; }
+  100% { left: 60px; }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(26, 26, 26, 0.15);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(26, 26, 26, 0.35);
+}
+
+/* Fashion Prose & Markdown styling in Variation 11 */
+.fashion-prose {
+  line-height: 1.8;
+  color: #262626;
+  font-family: var(--font-sans);
+}
+
+.fashion-prose h1, .fashion-prose h2, .fashion-prose h3 {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  margin-top: 1.5rem;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.fashion-prose h1 { 
+  font-size: 1.85rem;
+  border-bottom: 1px solid var(--ink-faint);
+  padding-bottom: 0.4rem;
+}
+
+.fashion-prose h2 { 
+  font-size: 1.45rem; 
+}
+
+.fashion-prose h3 { 
+  font-size: 1.15rem; 
+}
+
+.fashion-prose p {
+  margin-bottom: 0.9rem;
+  font-size: 0.88rem;
+  color: #333333;
+}
+
+.fashion-prose ul {
+  list-style-type: square;
+  padding-left: 1.2rem;
+  margin-bottom: 0.9rem;
+  font-size: 0.88rem;
+}
+
+.fashion-prose ol {
+  list-style-type: decimal;
+  padding-left: 1.2rem;
+  margin-bottom: 0.9rem;
+  font-size: 0.88rem;
+}
+
+.fashion-prose li {
+  margin-bottom: 0.4rem;
+  color: #333333;
+}
+
+.fashion-prose strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.fashion-prose blockquote {
+  border-left: 2px solid var(--ink);
+  padding-left: 1rem;
+  font-style: italic;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: #1a1a1a;
+  margin: 1.25rem 0;
+  background: rgba(26, 26, 26, 0.02);
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}
+
+.fashion-prose code {
+  font-family: var(--font-mono);
+  background: rgba(26, 26, 26, 0.05);
+  padding: 0.15rem 0.35rem;
+  border-radius: 2px;
+  font-size: 0.8em;
+  color: var(--ink);
+}
+
+.fashion-prose hr {
+  border: none;
+  border-top: 1px solid var(--ink-faint);
+  margin: 1.5rem 0;
+}
